@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrical Training Courses & Qualifications | Logic4training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #004b87;
+      --teal:      #5bc2d5;
+      --off-white: #f3f5f5;
+      --crimson:   #c9274f;
+      --orange:    #e37814;
+      --navy-dark: #003a68;
+      --navy-mid:  #00407a;
+      --white:     #ffffff;
+      --text:      #1a2030;
+      --muted:     #5a6478;
+      --border:    #dde3e8;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 16px rgba(0,75,135,0.25);
+    }
+    .nav-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--teal); }
+    .nav-phone { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white); letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      background: var(--navy);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 65% 50%, rgba(91,194,213,0.12) 0%, transparent 65%),
+        repeating-linear-gradient(-50deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
+      pointer-events: none;
+    }
+    .hero-accent { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(to bottom, var(--teal), var(--orange)); }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 5rem 3rem 5rem 6rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(91,194,213,0.15); border: 1px solid rgba(91,194,213,0.4); border-radius: 3px;
+      padding: 0.3rem 0.85rem;
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 1.75rem; width: fit-content;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900; line-height: 0.93;
+      letter-spacing: -0.01em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 1.75rem;
+    }
+    h1 em { font-style: normal; color: var(--teal); display: block; }
+    .hero-intro { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 460px; margin-bottom: 1.25rem; line-height: 1.75; font-weight: 300; }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+    .hero-image-panel { position: relative; overflow: hidden; }
+    .hero-placeholder {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #003a68 0%, #00407a 50%, #004b87 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem;
+    }
+    .hero-placeholder-icon { width: 130px; height: 130px; border: 2px solid rgba(91,194,213,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .hero-placeholder p { color: rgba(91,194,213,0.6); font-size: 0.8rem; font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--orange); color: var(--white);
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; border: none; cursor: pointer; text-decoration: none;
+      border-radius: 2px; transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: #cc6c0f; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,120,20,0.35); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--white);
+      font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; border: 1px solid rgba(255,255,255,0.35);
+      cursor: pointer; text-decoration: none; border-radius: 2px;
+      transition: border-color .2s, background .2s, transform .15s;
+    }
+    .btn-secondary:hover { border-color: var(--teal); background: rgba(91,194,213,0.1); transform: translateY(-2px); }
+    .btn-navy {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--navy); color: var(--white);
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; border: none; cursor: pointer; text-decoration: none;
+      border-radius: 2px; transition: background .2s, transform .15s;
+    }
+    .btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); }
+
+    /* SHARED LAYOUT */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-label::before { content: ''; width: 28px; height: 2px; background: var(--teal); flex-shrink: 0; }
+
+    /* PICKER */
+    .picker-section { background: var(--off-white); padding: 6rem 0; position: relative; }
+    .picker-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal), var(--orange)); }
+    .picker-header { text-align: center; margin-bottom: 3.5rem; }
+    .picker-header .section-label { justify-content: center; }
+    .picker-header .section-label::before { display: none; }
+    .picker-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; }
+    .picker-header p { color: var(--muted); max-width: 520px; margin: 0 auto; font-size: 1.05rem; }
+    .picker-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .picker-card {
+      background: var(--white); border: 2px solid var(--border);
+      padding: 2rem 1.5rem; cursor: pointer;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .picker-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+    .picker-card:hover::after, .picker-card.active::after { transform: scaleX(1); }
+    .picker-card:hover, .picker-card.active { border-color: var(--teal); box-shadow: 0 8px 32px rgba(0,75,135,0.12); transform: translateY(-4px); }
+    .picker-icon { width: 56px; height: 56px; background: rgba(0,75,135,0.06); border: 1px solid rgba(0,75,135,0.12); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: 1.25rem; transition: background .2s; }
+    .picker-card:hover .picker-icon, .picker-card.active .picker-icon { background: rgba(91,194,213,0.12); border-color: rgba(91,194,213,0.35); }
+    .picker-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
+    .picker-card .picker-short { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+    .picker-arrow { position: absolute; top: 1.1rem; right: 1.1rem; width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--muted); transition: background .2s, border-color .2s, color .2s, transform .25s; }
+    .picker-card.active .picker-arrow { background: var(--teal); border-color: var(--teal); color: var(--white); transform: rotate(90deg); }
+    .picker-panel { display: none; grid-column: 1 / -1; background: var(--navy); border-left: 4px solid var(--teal); padding: 2.5rem 3rem; margin-top: 0.25rem; animation: slideDown .3s ease; }
+    .picker-panel.open { display: flex; gap: 3rem; align-items: flex-start; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .panel-content { flex: 1; }
+    .panel-content h4 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .panel-content p { color: rgba(255,255,255,0.8); margin-bottom: 1.75rem; max-width: 560px; line-height: 1.75; }
+    .panel-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .panel-icon-large { width: 90px; height: 90px; background: rgba(91,194,213,0.1); border: 1px solid rgba(91,194,213,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; flex-shrink: 0; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--teal); font-weight: 600; font-size: 0.92rem; text-decoration: none; font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase; transition: gap .2s; }
+    .link-arrow:hover { gap: 0.7rem; }
+
+    /* OVERVIEW */
+    .overview-section { background: var(--white); padding: 6rem 0; }
+    .overview-header h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); }
+    .overview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin: 2.5rem 0; }
+    .overview-card { background: var(--off-white); border: 1px solid var(--border); border-top: 3px solid var(--navy); padding: 2.5rem 2rem; }
+    .overview-card.accent-teal { border-top-color: var(--teal); }
+    .overview-card.accent-orange { border-top-color: var(--orange); }
+    .overview-icon { font-size: 2.25rem; display: block; margin-bottom: 1.25rem; }
+    .overview-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; }
+    .overview-card p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+    .pathway-steps { list-style: none; margin-top: 0.5rem; }
+    .pathway-steps li { display: flex; align-items: center; gap: 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
+    .pathway-steps li:last-child { border-bottom: none; }
+    .step-num { width: 24px; height: 24px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; }
+    .step-num.done { background: var(--teal); }
+    .timeframe-list { list-style: none; margin-top: 0.5rem; }
+    .timeframe-list li { padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
+    .timeframe-list li:last-child { border-bottom: none; }
+    .timeframe-list strong { color: var(--navy); font-weight: 600; display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .overview-cta-banner { background: var(--navy); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .overview-cta-banner p { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: var(--white); }
+
+    /* QUALIFICATIONS */
+    .quals-section { background: var(--off-white); padding: 6rem 0; }
+    .quals-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
+    .quals-header h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; }
+    .quals-header p { color: var(--muted); line-height: 1.7; padding-top: 0.5rem; }
+    .accordion-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .accordion-item { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: border-color .2s; }
+    .accordion-item.open { border-color: var(--teal); }
+    .accordion-trigger { width: 100%; padding: 1.4rem 2rem; display: flex; align-items: center; justify-content: space-between; background: none; border: none; color: var(--text); cursor: pointer; text-align: left; transition: background .2s; }
+    .accordion-trigger:hover { background: rgba(0,75,135,0.03); }
+    .accordion-trigger-left { display: flex; align-items: center; gap: 1rem; }
+    .acc-icon { width: 38px; height: 38px; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .accordion-trigger h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); }
+    .acc-chevron { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--muted); transition: transform .3s, background .2s, border-color .2s, color .2s; flex-shrink: 0; }
+    .accordion-item.open .acc-chevron { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: var(--white); }
+    .accordion-body { display: none; padding: 0 2rem 1.75rem 4.5rem; }
+    .accordion-item.open .accordion-body { display: block; }
+    .accordion-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+    .acc-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--navy); font-weight: 700; font-size: 0.88rem; text-decoration: none; font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid var(--teal); padding-bottom: 1px; transition: color .2s; }
+    .acc-link:hover { color: var(--teal); }
+
+    /* COURSES */
+    .courses-section { background: var(--white); padding: 6rem 0; }
+    .courses-section h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 3rem; }
+    .courses-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .course-tile { background: var(--off-white); border: 1px solid var(--border); overflow: hidden; cursor: pointer; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .course-tile:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,75,135,0.12); }
+    .course-thumb { height: 130px; background: linear-gradient(135deg, var(--navy-dark), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 2.75rem; position: relative; overflow: hidden; }
+    .course-thumb::after { content: 'View Courses →'; position: absolute; inset: 0; background: rgba(91,194,213,0.92); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); opacity: 0; transition: opacity .2s; }
+    .course-tile:hover .course-thumb::after { opacity: 1; }
+    .course-info { padding: 1.25rem; }
+    .course-info h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; }
+    .course-info p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+    .course-tag { display: inline-block; margin-top: 0.75rem; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.15); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; }
+
+    /* TRUST */
+    .trust-section { background: var(--off-white); padding: 6rem 0; }
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .trust-content h2 { font-family: var(--font-display); font-size: clamp(2rem,3vw,3rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; margin-bottom: 1rem; }
+    .trust-content h2 span { color: var(--teal); }
+    .trust-intro { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin-bottom: 2rem; }
+    .trust-points { list-style: none; }
+    .trust-point { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+    .trust-point:first-child { border-top: 1px solid var(--border); }
+    .trust-bullet { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
+    .trust-point-text strong { display: block; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.2rem; }
+    .trust-point-text p { color: var(--muted); font-size: 0.88rem; }
+    .trust-media { background: var(--navy); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; position: relative; overflow: hidden; }
+    .trust-media::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(91,194,213,0.1) 0%, transparent 70%); }
+    .trust-media-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; padding: 0 2rem; }
+    .play-btn { width: 72px; height: 72px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; transition: transform .2s; box-shadow: 0 4px 24px rgba(227,120,20,0.4); }
+    .play-btn:hover { transform: scale(1.08); }
+    .trust-media-label { color: rgba(255,255,255,0.45); font-size: 0.78rem; font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
+    .stats-row { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 2rem; background: rgba(0,0,0,0.35); display: flex; justify-content: space-around; }
+    .stat { text-align: center; }
+    .stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; color: var(--teal); line-height: 1; }
+    .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* LOCATIONS */
+    .locations-section { background: var(--white); padding: 6rem 0; }
+    .locations-section h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 0.75rem; }
+    .locations-intro { color: var(--muted); margin-bottom: 2.5rem; max-width: 560px; }
+    .locations-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 2rem; }
+    .map-placeholder { background: var(--off-white); border: 1px solid var(--border); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; position: relative; overflow: hidden; }
+    .map-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 38% 55%, rgba(0,75,135,0.05) 0%, transparent 50%); }
+    .map-icon { font-size: 3.5rem; position: relative; z-index: 1; }
+    .map-label { color: var(--muted); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; position: relative; z-index: 1; }
+    .centre-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .centre-card { background: var(--off-white); border: 1px solid var(--border); border-left: 3px solid var(--teal); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.25rem; text-decoration: none; color: inherit; transition: border-left-color .2s, background .2s, transform .2s, box-shadow .2s; }
+    .centre-card:hover { border-left-color: var(--navy); background: var(--white); transform: translateX(4px); box-shadow: 0 2px 12px rgba(0,75,135,0.08); }
+    .centre-pin { width: 38px; height: 38px; flex-shrink: 0; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .centre-info { flex: 1; }
+    .centre-info strong { display: block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.15rem; }
+    .centre-info span { color: var(--muted); font-size: 0.83rem; }
+    .centre-cta { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--teal); white-space: nowrap; }
+
+    /* FAQ */
+    .faq-section { background: var(--off-white); padding: 6rem 0; }
+    .faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; }
+    .faq-sidebar h2 { font-family: var(--font-display); font-size: clamp(2rem,3vw,3rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; margin-bottom: 1.5rem; }
+    .faq-sidebar p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--navy); padding: 6rem 0; position: relative; overflow: hidden; }
+    .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,194,213,0.1) 0%, transparent 60%), repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255,255,255,0.015) 30px, rgba(255,255,255,0.015) 31px); }
+    .final-cta-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    .final-cta h2 { font-family: var(--font-display); font-size: clamp(2rem,4vw,4.2rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 0.92; letter-spacing: -0.01em; margin-bottom: 1rem; }
+    .final-cta h2 span { color: var(--teal); }
+    .final-cta p { color: rgba(255,255,255,0.65); font-size: 1.05rem; }
+    .final-cta-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; flex-shrink: 0; }
+    .final-phone { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; color: var(--white); letter-spacing: 0.04em; white-space: nowrap; }
+
+    /* FOOTER */
+    footer { background: var(--navy-dark); border-top: 3px solid var(--teal); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .footer-logo span { color: var(--teal); }
+    footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Logic<span>4training</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Qualifications</a></li>
+    <li><a href="#">Locations</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <div class="nav-phone">📞 0800 000 0000</div>
+</nav>
+
+<!-- ═══ 1. HERO ═══ -->
+<section class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-badge">UK Electrical Training Provider</div>
+    <h1>Electrical Training <em>Courses &amp;</em> <em>Qualifications</em></h1>
+    <p class="hero-intro">Becoming a qualified electrician can open the door to a secure, well-paid and in-demand career. Whether you're starting from scratch, changing career, or looking to update your qualifications, there are structured training routes available in the UK.</p>
+    <p class="hero-intro">At Logic4training, we deliver electrical courses for new entrants, experienced operatives and qualified electricians needing certification. Our courses are designed to help you progress at every stage, from foundation diplomas and AM2 to 18th Edition and inspection &amp; testing.</p>
+    <div class="cta-group">
+      <a href="#" class="btn-primary">Speak to One of Our Electrical Course Advisors Today</a>
+      <a href="https://www.logic4training.co.uk/insights/retrain-as-an-electrician-in-2025-everything-you-need-to-know/" class="btn-secondary">Read our Guide to Training as an Electrician</a>
+    </div>
+  </div>
+  <div class="hero-image-panel">
+    <div class="hero-placeholder">
+      <div class="hero-placeholder-icon">⚡</div>
+      <p>[ Hero image: electrician installing<br>consumer unit or testing circuits ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. COURSE PICKER ═══ -->
+<section class="picker-section" id="finder">
+  <div class="container">
+    <div class="picker-header">
+      <div class="section-label">Start Here</div>
+      <h2>Not Sure Which Electrical Course You Need?</h2>
+      <p>Electrical training pathways can seem confusing at first. The right course depends on your current experience level. Tell us your experience level, and we'll direct you to the course that's right for you.</p>
+    </div>
+
+    <div class="picker-grid" id="pickerGrid">
+
+      <div class="picker-card" data-panel="0" onclick="togglePanel(0)">
+        <div class="picker-arrow">›</div>
+        <div class="picker-icon">🔧</div>
+        <h3>I Have No Experience / I'm Changing Career</h3>
+        <p class="picker-short">Start from scratch with our new entrant routes.</p>
+      </div>
+
+      <div class="picker-card" data-panel="1" onclick="togglePanel(1)">
+        <div class="picker-arrow">›</div>
+        <div class="picker-icon">🧰</div>
+        <h3>I Work in the Trade But Don't Hold a Full Qualification</h3>
+        <p class="picker-short">Formalise your existing skills and experience.</p>
+      </div>
+
+      <div class="picker-card" data-panel="2" onclick="togglePanel(2)">
+        <div class="picker-arrow">›</div>
+        <div class="picker-icon">📋</div>
+        <h3>I'm a Qualified Electrician Needing Additional Qualifications</h3>
+        <p class="picker-short">Stay compliant or expand your services.</p>
+      </div>
+
+      <div class="picker-card" data-panel="3" onclick="togglePanel(3)">
+        <div class="picker-arrow">›</div>
+        <div class="picker-icon">🔋</div>
+        <h3>I Want to Specialise in EV or Renewable Technologies</h3>
+        <p class="picker-short">Upskill into growing low-carbon sectors.</p>
+      </div>
+
+      <div class="picker-panel" id="panel-0">
+        <div class="panel-icon-large">🔧</div>
+        <div class="panel-content">
+          <h4>New Entrants Electrical Package</h4>
+          <p>If you're starting from scratch, you'll need to build foundational knowledge before progressing toward full qualification. Our New Entrants Electrical Packages are designed for career changers and beginners, combining Level 2, Level 3 and progression routes toward NVQ and AM2.</p>
+          <div class="panel-ctas">
+            <a href="#" class="btn-primary">View New Entrants Electrical Courses</a>
+            <a href="#" class="link-arrow">Read our guide to retraining as an electrician →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="picker-panel" id="panel-1">
+        <div class="panel-icon-large">🧰</div>
+        <div class="panel-content">
+          <h4>NVQ Experienced Worker Route</h4>
+          <p>If you're already carrying out electrical work but don't hold a Level 3 NVQ, the Experienced Worker Route (EWR) can allow you to formalise your skills by achieving a Level 3 qualification, and culminating in your AM2 assessment to become a fully qualified electrician.</p>
+          <div class="panel-ctas">
+            <a href="#" class="btn-primary">Learn about the NVQ Level 3 Experienced Worker Route</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="picker-panel" id="panel-2">
+        <div class="panel-icon-large">📋</div>
+        <div class="panel-content">
+          <h4>Electrical Safety &amp; Compliance Courses</h4>
+          <p>Many electricians require additional qualifications to remain compliant or expand their services. Common routes include 18th Edition Wiring Regulations and Inspection &amp; Testing. We can help you get certified.</p>
+          <div class="panel-ctas">
+            <a href="#" class="btn-primary">Explore Electrical Safety and Compliance Courses</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="picker-panel" id="panel-3">
+        <div class="panel-icon-large">🔋</div>
+        <div class="panel-content">
+          <h4>Renewable Technology Courses</h4>
+          <p>With demand growing in low-carbon technologies, many electricians are upskilling into renewable technologies such as electric vehicle charging, energy storage systems or solar PV.</p>
+          <div class="panel-ctas">
+            <a href="#" class="btn-primary">View Renewable Technology Courses</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. OVERVIEW ═══ -->
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-header">
+      <div class="section-label">How It Works</div>
+      <h2>How Do You Become a Qualified Electrician in the UK?</h2>
+      <p style="color:var(--muted);margin-top:0.75rem;max-width:560px;">There are several recognised routes into the electrical industry, but most follow a similar progression structure.</p>
+    </div>
+
+    <div class="overview-grid">
+
+      <div class="overview-card">
+        <span class="overview-icon">📐</span>
+        <h3>Typical Training Pathway</h3>
+        <ul class="pathway-steps">
+          <li><span class="step-num">1</span> Level 2 Diploma in Electrical Installation</li>
+          <li><span class="step-num">2</span> Level 3 Diploma in Electrical Installation</li>
+          <li><span class="step-num">3</span> NVQ Level 3 (workplace competency qualification)</li>
+          <li><span class="step-num">4</span> AM2 Assessment (final practical assessment)</li>
+          <li><span class="step-num done">✓</span> ECS Gold Card — work as a fully qualified electrician</li>
+        </ul>
+      </div>
+
+      <div class="overview-card accent-teal">
+        <span class="overview-icon">⏱️</span>
+        <h3>How Long Does It Take?</h3>
+        <p style="margin-bottom:0.75rem;">The timeframe depends on your route:</p>
+        <ul class="timeframe-list">
+          <li><strong>Apprenticeship Route</strong>Typically 3–4 years</li>
+          <li><strong>Training Course Route</strong>1–3.5 years</li>
+          <li><strong>College Route</strong>2.5–3.5 years</li>
+          <li><strong>Experienced Worker Route</strong>Varies depending on existing experience</li>
+        </ul>
+      </div>
+
+      <div class="overview-card accent-orange">
+        <span class="overview-icon">📈</span>
+        <h3>Career Outlook &amp; Salary</h3>
+        <p>The UK electrical sector continues to grow, driven by housing demand, infrastructure investment and renewable energy adoption. Qualified electricians often earn competitive salaries, with opportunities to become self-employed or specialise in higher-value sectors such as inspection &amp; testing, EV charging or renewables.</p>
+        <p style="margin-top:1rem;">For a detailed breakdown of training routes, timelines and career prospects, read our full guide to retraining as an electrician.</p>
+      </div>
+
+    </div>
+
+    <div class="overview-cta-banner">
+      <p>Read the complete guide to retraining as an electrician</p>
+      <a href="#" class="btn-secondary">Read the Full Guide →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. QUALIFICATIONS ═══ -->
+<section class="quals-section">
+  <div class="container">
+    <div class="quals-header">
+      <div>
+        <div class="section-label">Qualification Structure</div>
+        <h2>Electrical Qualifications Explained</h2>
+      </div>
+      <p>Understanding the qualification structure helps you choose the right training path. Each qualification builds on the last, creating a clear route toward full certification and ECS Gold Card status.</p>
+    </div>
+
+    <div class="accordion-list">
+
+      <div class="accordion-item open">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon">🟦</div>
+            <h3>Level 2 Diploma in Electrical Installation</h3>
+          </div>
+          <div class="acc-chevron">▲</div>
+        </button>
+        <div class="accordion-body">
+          <p>This qualification introduces core electrical principles, health and safety, installation practices and theory. It is typically the starting point for new entrants.</p>
+          <a href="#" class="acc-link">View Level 2 Electrical Courses →</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon">🔷</div>
+            <h3>Level 3 Diploma in Electrical Installation</h3>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </button>
+        <div class="accordion-body">
+          <p>Builds on Level 2 and covers more advanced installation practices, inspection and testing, and system design knowledge. Often required before progressing to NVQ.</p>
+          <a href="#" class="acc-link">View Level 3 Electrical Courses →</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon">🏆</div>
+            <h3>NVQ Level 3 Electrical Installation</h3>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </button>
+        <div class="accordion-body">
+          <p>The NVQ assesses occupational competence in a real working environment. It is required to become fully qualified and apply for ECS Gold Card status.</p>
+          <a href="#" class="acc-link">Learn about the NVQ Experienced Worker Route →</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon">⚡</div>
+            <h3>AM2 Assessment</h3>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </button>
+        <div class="accordion-body">
+          <p>The AM2 (Achievement Measurement 2) is the final practical assessment that tests installation, inspection, testing and fault-finding skills under exam conditions.</p>
+          <a href="#" class="acc-link">Learn more about AM2 preparation →</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon">📘</div>
+            <h3>18th Edition Wiring Regulations (BS 7671)</h3>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </button>
+        <div class="accordion-body">
+          <p>The 18th Edition qualification ensures electricians understand the current wiring regulations governing electrical installations in the UK. It is essential for compliance.</p>
+          <a href="#" class="acc-link">View 18th Edition Courses →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. COURSES ═══ -->
+<section class="courses-section">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2>Our Electrical Training Courses</h2>
+
+    <div class="courses-grid">
+      <div class="course-tile">
+        <div class="course-thumb">🔌</div>
+        <div class="course-info">
+          <h3>New Entrants Electrical Packages</h3>
+          <p>Complete training bundles for career changers and beginners entering the electrical trade for the first time.</p>
+          <span class="course-tag">Entry Level</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">🏗️</div>
+        <div class="course-info">
+          <h3>Electrical Installation Diplomas</h3>
+          <p>Level 2 &amp; 3 diplomas covering installation theory and practice from foundation to advanced.</p>
+          <span class="course-tag">Level 2 &amp; 3</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">📜</div>
+        <div class="course-info">
+          <h3>Electrical Level 3 NVQ</h3>
+          <p>Workplace competency qualification required for ECS Gold Card and full qualification status.</p>
+          <span class="course-tag">Qualification</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">🛡️</div>
+        <div class="course-info">
+          <h3>Electrical Safety Courses</h3>
+          <p>Essential safety training for professionals working with electrical systems and installations.</p>
+          <span class="course-tag">Compliance</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">🏠</div>
+        <div class="course-info">
+          <h3>Domestic Electrical Courses</h3>
+          <p>Specialist courses focused on domestic installation work for those operating in residential properties.</p>
+          <span class="course-tag">Domestic</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">🔍</div>
+        <div class="course-info">
+          <h3>Electrical Inspection &amp; Testing</h3>
+          <p>For qualified electricians expanding into inspection, testing and electrical condition reporting.</p>
+          <span class="course-tag">Qualified +</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">📖</div>
+        <div class="course-info">
+          <h3>Wiring Regulations Courses</h3>
+          <p>18th Edition BS 7671 certification for qualified electricians. Essential for legal compliance in practice.</p>
+          <span class="course-tag">18th Edition</span>
+        </div>
+      </div>
+      <div class="course-tile">
+        <div class="course-thumb">🌱</div>
+        <div class="course-info">
+          <h3>Electric Renewable Technologies</h3>
+          <p>EV charging, solar PV and energy storage — upskill into high-demand low-carbon technologies.</p>
+          <span class="course-tag">Specialist</span>
+        </div>
+      </div>
+    </div>
+    <p style="color:var(--muted);font-size:0.9rem;margin-top:1.5rem;">Each course is delivered by experienced tutors in practical workshop environments at our dedicated training centres.</p>
+  </div>
+</section>
+
+<!-- ═══ 6. TRUST ═══ -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-content">
+        <div class="section-label">Why Logic4training</div>
+        <h2>Choosing the Right <span>Training</span> Provider Matters</h2>
+        <p class="trust-intro">We understand how to help you move forward in your electrical career and offer all the qualifications you need — not only to get started, but for continued progress.</p>
+        <ul class="trust-points">
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Purpose-Built Training Workshops</strong>
+              <p>Practical facilities designed to replicate real-world installations.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Experienced Tutors with Industry Backgrounds</strong>
+              <p>Our tutors are qualified electricians with genuine field experience.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Small Class Sizes</strong>
+              <p>We keep groups small to ensure maximum hands-on time for every learner.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Clear Progression Routes</strong>
+              <p>From first course to ECS Gold Card — we support you at every stage.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Support with Next Steps &amp; Qualification Planning</strong>
+              <p>Our advisors help you map out your full career and qualification journey.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <div class="trust-bullet"></div>
+            <div class="trust-point-text">
+              <strong>Recognised Qualifications Through Leading Awarding Bodies</strong>
+              <p>All qualifications are industry-recognised and delivered by accredited awarding bodies.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="trust-media">
+        <div class="trust-media-inner">
+          <div class="play-btn">▶</div>
+          <p class="trust-media-label">[ Real training photo or testimonial video ]</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">4</div><div class="stat-label">Training Centres</div></div>
+          <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Course Types</div></div>
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Trading</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. LOCATIONS ═══ -->
+<section class="locations-section">
+  <div class="container">
+    <div class="section-label">Where We Train</div>
+    <h2>Electrical Courses Near You</h2>
+    <p class="locations-intro">We deliver electrical training in 4 locations, with practical facilities designed to replicate real-world installations. Learn more about our training centres and their facilities below.</p>
+    <div class="locations-grid">
+      <div class="map-placeholder">
+        <div class="map-icon">🗺️</div>
+        <p class="map-label">[ Embedded Google Map — 4 training centre pins ]</p>
+      </div>
+      <div class="centre-cards">
+        <a href="#" class="centre-card">
+          <div class="centre-pin">📍</div>
+          <div class="centre-info"><strong>Northolt</strong><span>West London</span></div>
+          <span class="centre-cta">View Centre →</span>
+        </a>
+        <a href="#" class="centre-card">
+          <div class="centre-pin">📍</div>
+          <div class="centre-info"><strong>Luton</strong><span>Bedfordshire</span></div>
+          <span class="centre-cta">View Centre →</span>
+        </a>
+        <a href="#" class="centre-card">
+          <div class="centre-pin">📍</div>
+          <div class="centre-info"><strong>Basildon</strong><span>Essex</span></div>
+          <span class="centre-cta">View Centre →</span>
+        </a>
+        <a href="#" class="centre-card">
+          <div class="centre-pin">📍</div>
+          <div class="centre-info"><strong>Sittingbourne</strong><span>Kent</span></div>
+          <span class="centre-cta">View Centre →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. FAQ ═══ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sidebar">
+        <div class="section-label">FAQs</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Have a question not covered here? Our advisors are happy to help you find the right route for your experience level and goals.</p>
+        <a href="#" class="btn-primary">Speak to an Advisor</a>
+      </div>
+      <div class="accordion-list">
+
+        <div class="accordion-item open">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><h3>Can I become an electrician later in life?</h3></div>
+            <div class="acc-chevron">▲</div>
+          </button>
+          <div class="accordion-body">
+            <p>Yes. Many of our learners are career changers in their 30s and 40s.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><h3>Do I need prior experience?</h3></div>
+            <div class="acc-chevron">▼</div>
+          </button>
+          <div class="accordion-body">
+            <p>No. New entrants can begin with Level 2 courses designed for beginners.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><h3>Can I train while working full-time?</h3></div>
+            <div class="acc-chevron">▼</div>
+          </button>
+          <div class="accordion-body">
+            <p>Many electrical courses are structured to allow staged progression alongside employment.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><h3>What is the AM2?</h3></div>
+            <div class="acc-chevron">▼</div>
+          </button>
+          <div class="accordion-body">
+            <p>The AM2 is the final practical assessment required to demonstrate occupational competence.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><h3>Do I need maths to become an electrician?</h3></div>
+            <div class="acc-chevron">▼</div>
+          </button>
+          <div class="accordion-body">
+            <p>Basic maths skills are helpful, particularly for calculations and testing, but advanced maths is not required.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9. FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <div>
+        <h2>Start Your Journey Toward<br>Becoming a <span>Qualified</span><br>Electrician</h2>
+        <p>If you're unsure which route is right for you, our team can help. Call us today or enquire online to discuss your experience level and career goals.</p>
+      </div>
+      <div class="final-cta-actions">
+        <div class="final-phone">📞 0800 000 0000</div>
+        <a href="#" class="btn-primary">Enquire Online</a>
+        <a href="#" class="btn-secondary">Request a Callback</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">logic<span>4</span>training</div>
+  <p>© 2025 Logic4training Ltd. All rights reserved.</p>
+</footer>
+
+<script>
+  function togglePanel(index) {
+    const cards  = document.querySelectorAll('.picker-card');
+    const panels = document.querySelectorAll('.picker-panel');
+    const isOpen = cards[index].classList.contains('active');
+    cards.forEach(c  => c.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('open'));
+    if (!isOpen) {
+      cards[index].classList.add('active');
+      document.getElementById('panel-' + index).classList.add('open');
+    }
+  }
+
+  function toggleAccordion(btn) {
+    const item   = btn.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open');
+    btn.querySelector('.acc-chevron').textContent = item.classList.contains('open') ? '▲' : '▼';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const targets = document.querySelectorAll('.picker-card, .overview-card, .course-tile, .centre-card, .trust-point');
+    targets.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = `opacity 0.45s ease ${(i % 8) * 0.07}s, transform 0.45s ease ${(i % 8) * 0.07}s`;
+    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    targets.forEach(el => obs.observe(el));
+  });
+</script>
+
+</body>
+</html>
