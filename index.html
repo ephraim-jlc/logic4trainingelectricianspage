@@ -3,333 +3,502 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electrical Training Courses & Qualifications | Logic4training</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <title>Wireframe — Electrical Training Courses & Qualifications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:      #004b87;
-      --teal:      #5bc2d5;
-      --off-white: #f3f5f5;
-      --crimson:   #c9274f;
-      --orange:    #e37814;
-      --navy-dark: #003a68;
-      --navy-mid:  #00407a;
-      --white:     #ffffff;
-      --text:      #1a2030;
-      --muted:     #5a6478;
-      --border:    #dde3e8;
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Barlow', sans-serif;
+      --bg:        #f5f5f5;
+      --surface:   #ffffff;
+      --surface-2: #ebebeb;
+      --surface-3: #e0e0e0;
+      --outline:   #b0b0b0;
+      --outline-2: #cccccc;
+      --text-dark: #1a1a1a;
+      --text-mid:  #555555;
+      --text-muted:#888888;
+      --text-placeholder: #aaaaaa;
+      --font: 'Inter', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
     body {
-      background: var(--white);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
+      background: var(--bg);
+      color: var(--text-dark);
+      font-family: var(--font);
+      font-size: 15px;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* NAV */
+    /* Wireframe annotation style */
+    .wf-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-placeholder);
+      border: 1px dashed var(--outline-2);
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── NAV ─── */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy);
+      background: var(--surface-3);
+      border-bottom: 2px solid var(--outline);
       padding: 0 3rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-      box-shadow: 0 2px 16px rgba(0,75,135,0.25);
+      height: 60px;
     }
-    .nav-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--white); }
-    .nav-logo span { color: var(--teal); }
-    .nav-phone { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--white); letter-spacing: 0.04em; }
+    .nav-logo {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.01em;
+    }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--teal); }
+    .nav-links a {
+      color: var(--text-mid); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+    }
+    .nav-phone {
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--text-dark);
+    }
 
-    /* HERO */
+    /* ─── SHARED ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .section-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::before {
+      content: ''; width: 22px; height: 1px;
+      background: var(--outline); flex-shrink: 0;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--text-dark); color: var(--surface);
+      font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.8rem; border: 2px solid var(--text-dark);
+      cursor: pointer; text-decoration: none; border-radius: 2px;
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent; color: var(--text-dark);
+      font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.8rem; border: 2px solid var(--outline);
+      cursor: pointer; text-decoration: none; border-radius: 2px;
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent; color: var(--text-mid);
+      font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.75rem 1.8rem; border: 2px solid var(--outline);
+      cursor: pointer; text-decoration: none; border-radius: 2px;
+    }
+
+    /* ─── HERO ─── */
     .hero {
-      position: relative;
-      min-height: 88vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: stretch;
-      background: var(--navy);
-      overflow: hidden;
+      min-height: 80vh;
+      border-bottom: 2px solid var(--outline);
     }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 80% at 65% 50%, rgba(91,194,213,0.12) 0%, transparent 65%),
-        repeating-linear-gradient(-50deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
-      pointer-events: none;
-    }
-    .hero-accent { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(to bottom, var(--teal), var(--orange)); }
     .hero-content {
-      position: relative; z-index: 2;
+      background: var(--surface-2);
+      border-right: 2px solid var(--outline);
       padding: 5rem 3rem 5rem 6rem;
       display: flex; flex-direction: column; justify-content: center;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(91,194,213,0.15); border: 1px solid rgba(91,194,213,0.4); border-radius: 3px;
-      padding: 0.3rem 0.85rem;
-      font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal);
-      margin-bottom: 1.75rem; width: fit-content;
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--outline);
+      background: var(--surface-3);
+      padding: 0.25rem 0.7rem; border-radius: 2px;
+      margin-bottom: 1.5rem; width: fit-content;
     }
-    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      font-weight: 900; line-height: 0.93;
-      letter-spacing: -0.01em; text-transform: uppercase;
-      color: var(--white); margin-bottom: 1.75rem;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 700; line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 1.75rem;
     }
-    h1 em { font-style: normal; color: var(--teal); display: block; }
-    .hero-intro { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 460px; margin-bottom: 1.25rem; line-height: 1.75; font-weight: 300; }
+    .hero-intro {
+      font-size: 0.97rem; color: var(--text-mid);
+      max-width: 460px; margin-bottom: 1.1rem; line-height: 1.75;
+    }
     .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
-    .hero-image-panel { position: relative; overflow: hidden; }
-    .hero-placeholder {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #003a68 0%, #00407a 50%, #004b87 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem;
-    }
-    .hero-placeholder-icon { width: 130px; height: 130px; border: 2px solid rgba(91,194,213,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
-    .hero-placeholder p { color: rgba(91,194,213,0.6); font-size: 0.8rem; font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
 
-    /* BUTTONS */
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--orange); color: var(--white);
-      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.9rem 2.2rem; border: none; cursor: pointer; text-decoration: none;
-      border-radius: 2px; transition: background .2s, transform .15s, box-shadow .2s;
+    .hero-image-panel {
+      background: var(--surface-3);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem; min-height: 480px;
+      position: relative;
     }
-    .btn-primary:hover { background: #cc6c0f; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,120,20,0.35); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent; color: var(--white);
-      font-family: var(--font-display); font-size: 1rem; font-weight: 600;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      padding: 0.9rem 2.2rem; border: 1px solid rgba(255,255,255,0.35);
-      cursor: pointer; text-decoration: none; border-radius: 2px;
-      transition: border-color .2s, background .2s, transform .15s;
+    .img-placeholder {
+      width: 140px; height: 140px;
+      border: 2px dashed var(--outline);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
     }
-    .btn-secondary:hover { border-color: var(--teal); background: rgba(91,194,213,0.1); transform: translateY(-2px); }
-    .btn-navy {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--navy); color: var(--white);
-      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.9rem 2.2rem; border: none; cursor: pointer; text-decoration: none;
-      border-radius: 2px; transition: background .2s, transform .15s;
+    .img-placeholder svg { opacity: 0.3; }
+    .placeholder-caption {
+      font-size: 0.75rem; color: var(--text-placeholder);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-align: center;
     }
-    .btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); }
 
-    /* SHARED LAYOUT */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section-label {
-      font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal);
-      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem;
+    /* ─── PICKER ─── */
+    .picker-section {
+      background: var(--bg);
+      padding: 5rem 0;
+      border-bottom: 2px solid var(--outline);
     }
-    .section-label::before { content: ''; width: 28px; height: 2px; background: var(--teal); flex-shrink: 0; }
-
-    /* PICKER */
-    .picker-section { background: var(--off-white); padding: 6rem 0; position: relative; }
-    .picker-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal), var(--orange)); }
-    .picker-header { text-align: center; margin-bottom: 3.5rem; }
+    .picker-header {
+      text-align: center; margin-bottom: 3rem;
+    }
     .picker-header .section-label { justify-content: center; }
     .picker-header .section-label::before { display: none; }
-    .picker-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; }
-    .picker-header p { color: var(--muted); max-width: 520px; margin: 0 auto; font-size: 1.05rem; }
-    .picker-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .picker-card {
-      background: var(--white); border: 2px solid var(--border);
-      padding: 2rem 1.5rem; cursor: pointer;
-      transition: border-color .2s, transform .2s, box-shadow .2s;
-      position: relative; overflow: hidden;
+    .picker-header h2 {
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 700; color: var(--text-dark);
+      margin-bottom: 0.75rem;
     }
-    .picker-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
-    .picker-card:hover::after, .picker-card.active::after { transform: scaleX(1); }
-    .picker-card:hover, .picker-card.active { border-color: var(--teal); box-shadow: 0 8px 32px rgba(0,75,135,0.12); transform: translateY(-4px); }
-    .picker-icon { width: 56px; height: 56px; background: rgba(0,75,135,0.06); border: 1px solid rgba(0,75,135,0.12); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: 1.25rem; transition: background .2s; }
-    .picker-card:hover .picker-icon, .picker-card.active .picker-icon { background: rgba(91,194,213,0.12); border-color: rgba(91,194,213,0.35); }
-    .picker-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
-    .picker-card .picker-short { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
-    .picker-arrow { position: absolute; top: 1.1rem; right: 1.1rem; width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--muted); transition: background .2s, border-color .2s, color .2s, transform .25s; }
-    .picker-card.active .picker-arrow { background: var(--teal); border-color: var(--teal); color: var(--white); transform: rotate(90deg); }
-    .picker-panel { display: none; grid-column: 1 / -1; background: var(--navy); border-left: 4px solid var(--teal); padding: 2.5rem 3rem; margin-top: 0.25rem; animation: slideDown .3s ease; }
-    .picker-panel.open { display: flex; gap: 3rem; align-items: flex-start; }
-    @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
-    .panel-content { flex: 1; }
-    .panel-content h4 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
-    .panel-content p { color: rgba(255,255,255,0.8); margin-bottom: 1.75rem; max-width: 560px; line-height: 1.75; }
+    .picker-header p { color: var(--text-mid); max-width: 500px; margin: 0 auto; }
+
+    .picker-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--outline); border: 1px solid var(--outline); }
+    .picker-card {
+      background: var(--surface);
+      padding: 1.75rem 1.5rem;
+      cursor: pointer;
+      position: relative;
+    }
+    .picker-card:hover { background: var(--surface-2); }
+    .picker-card.active { background: var(--surface-2); outline: 2px solid var(--text-dark); outline-offset: -2px; }
+    .picker-icon-box {
+      width: 48px; height: 48px;
+      background: var(--surface-3);
+      border: 1px solid var(--outline);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .picker-card h3 {
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--text-dark); line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+    .picker-card p { font-size: 0.82rem; color: var(--text-muted); }
+    .picker-toggle {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 22px; height: 22px;
+      border: 1px solid var(--outline);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--text-muted);
+    }
+    .picker-card.active .picker-toggle {
+      background: var(--text-dark); border-color: var(--text-dark);
+      color: var(--surface);
+    }
+
+    .picker-panel {
+      display: none;
+      grid-column: 1 / -1;
+      background: var(--surface-2);
+      border-top: 1px solid var(--outline);
+      border-left: 3px solid var(--text-dark);
+      padding: 2rem 2.5rem;
+      animation: slideDown .25s ease;
+    }
+    .picker-panel.open { display: flex; gap: 2.5rem; align-items: flex-start; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+    .panel-icon-box {
+      width: 80px; height: 80px; flex-shrink: 0;
+      background: var(--surface-3);
+      border: 2px dashed var(--outline);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-placeholder);
+      text-align: center;
+    }
+    .panel-content h4 {
+      font-size: 1.3rem; font-weight: 700; color: var(--text-dark);
+      margin-bottom: 0.6rem;
+    }
+    .panel-content p {
+      font-size: 0.92rem; color: var(--text-mid);
+      margin-bottom: 1.5rem; max-width: 560px; line-height: 1.7;
+    }
     .panel-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-    .panel-icon-large { width: 90px; height: 90px; background: rgba(91,194,213,0.1); border: 1px solid rgba(91,194,213,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; flex-shrink: 0; }
-    .link-arrow { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--teal); font-weight: 600; font-size: 0.92rem; text-decoration: none; font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase; transition: gap .2s; }
-    .link-arrow:hover { gap: 0.7rem; }
+    .link-text {
+      font-size: 0.85rem; font-weight: 600; color: var(--text-mid);
+      text-decoration: underline; cursor: pointer;
+    }
 
-    /* OVERVIEW */
-    .overview-section { background: var(--white); padding: 6rem 0; }
-    .overview-header h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); }
-    .overview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin: 2.5rem 0; }
-    .overview-card { background: var(--off-white); border: 1px solid var(--border); border-top: 3px solid var(--navy); padding: 2.5rem 2rem; }
-    .overview-card.accent-teal { border-top-color: var(--teal); }
-    .overview-card.accent-orange { border-top-color: var(--orange); }
-    .overview-icon { font-size: 2.25rem; display: block; margin-bottom: 1.25rem; }
-    .overview-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; }
-    .overview-card p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
-    .pathway-steps { list-style: none; margin-top: 0.5rem; }
-    .pathway-steps li { display: flex; align-items: center; gap: 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
+    /* ─── OVERVIEW ─── */
+    .overview-section { background: var(--surface); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
+    .overview-header h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); }
+    .overview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin: 2.5rem 0; }
+    .overview-card {
+      background: var(--bg);
+      border: 1px solid var(--outline);
+      border-top: 3px solid var(--text-dark);
+      padding: 2rem 1.75rem;
+    }
+    .overview-card.mid-card { border-top-color: var(--text-mid); }
+    .overview-card.light-card { border-top-color: var(--outline); }
+    .icon-box-sm {
+      width: 40px; height: 40px;
+      background: var(--surface-3);
+      border: 1px solid var(--outline);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .overview-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; }
+    .overview-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+    .pathway-steps { list-style: none; margin-top: 0.4rem; }
+    .pathway-steps li { display: flex; align-items: center; gap: 0.65rem; padding: 0.5rem 0; border-bottom: 1px solid var(--outline-2); font-size: 0.85rem; color: var(--text-dark); }
     .pathway-steps li:last-child { border-bottom: none; }
-    .step-num { width: 24px; height: 24px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; }
-    .step-num.done { background: var(--teal); }
-    .timeframe-list { list-style: none; margin-top: 0.5rem; }
-    .timeframe-list li { padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
+    .step-num { width: 22px; height: 22px; background: var(--text-dark); color: var(--surface); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; }
+    .step-num.done { background: var(--text-mid); }
+    .timeframe-list { list-style: none; margin-top: 0.4rem; }
+    .timeframe-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--outline-2); font-size: 0.85rem; color: var(--text-dark); }
     .timeframe-list li:last-child { border-bottom: none; }
-    .timeframe-list strong { color: var(--navy); font-weight: 600; display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .overview-cta-banner { background: var(--navy); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .overview-cta-banner p { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: var(--white); }
+    .timeframe-list strong { color: var(--text-mid); font-weight: 600; display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .cta-strip {
+      background: var(--surface-3);
+      border: 1px solid var(--outline);
+      padding: 1.75rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+    .cta-strip p { font-size: 1rem; font-weight: 600; color: var(--text-dark); }
 
-    /* QUALIFICATIONS */
-    .quals-section { background: var(--off-white); padding: 6rem 0; }
-    .quals-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
-    .quals-header h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; }
-    .quals-header p { color: var(--muted); line-height: 1.7; padding-top: 0.5rem; }
-    .accordion-list { display: flex; flex-direction: column; gap: 0.5rem; }
-    .accordion-item { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: border-color .2s; }
-    .accordion-item.open { border-color: var(--teal); }
-    .accordion-trigger { width: 100%; padding: 1.4rem 2rem; display: flex; align-items: center; justify-content: space-between; background: none; border: none; color: var(--text); cursor: pointer; text-align: left; transition: background .2s; }
-    .accordion-trigger:hover { background: rgba(0,75,135,0.03); }
-    .accordion-trigger-left { display: flex; align-items: center; gap: 1rem; }
-    .acc-icon { width: 38px; height: 38px; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .accordion-trigger h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); }
-    .acc-chevron { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--muted); transition: transform .3s, background .2s, border-color .2s, color .2s; flex-shrink: 0; }
-    .accordion-item.open .acc-chevron { transform: rotate(180deg); background: var(--teal); border-color: var(--teal); color: var(--white); }
-    .accordion-body { display: none; padding: 0 2rem 1.75rem 4.5rem; }
+    /* ─── QUALIFICATIONS ─── */
+    .quals-section { background: var(--bg); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
+    .quals-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 2.5rem; }
+    .quals-header h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); }
+    .quals-header p { color: var(--text-mid); line-height: 1.7; padding-top: 0.4rem; font-size: 0.92rem; }
+    .accordion-list { display: flex; flex-direction: column; }
+    .accordion-item { background: var(--surface); border: 1px solid var(--outline); border-top: none; overflow: hidden; }
+    .accordion-item:first-child { border-top: 1px solid var(--outline); }
+    .accordion-item.open { outline: 1px solid var(--text-dark); }
+    .accordion-trigger { width: 100%; padding: 1.2rem 1.75rem; display: flex; align-items: center; justify-content: space-between; background: none; border: none; color: var(--text-dark); cursor: pointer; text-align: left; }
+    .accordion-trigger:hover { background: var(--bg); }
+    .accordion-trigger-left { display: flex; align-items: center; gap: 0.85rem; }
+    .acc-icon-box { width: 32px; height: 32px; background: var(--surface-3); border: 1px solid var(--outline); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); flex-shrink: 0; }
+    .accordion-trigger h3 { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); }
+    .acc-chevron { width: 26px; height: 26px; border: 1px solid var(--outline); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--text-muted); transition: transform .3s, background .2s; flex-shrink: 0; }
+    .accordion-item.open .acc-chevron { transform: rotate(180deg); background: var(--text-dark); border-color: var(--text-dark); color: var(--surface); }
+    .accordion-body { display: none; padding: 0 1.75rem 1.5rem 4rem; }
     .accordion-item.open .accordion-body { display: block; }
-    .accordion-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
-    .acc-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--navy); font-weight: 700; font-size: 0.88rem; text-decoration: none; font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid var(--teal); padding-bottom: 1px; transition: color .2s; }
-    .acc-link:hover { color: var(--teal); }
+    .accordion-body p { color: var(--text-mid); font-size: 0.88rem; line-height: 1.7; margin-bottom: 0.75rem; }
+    .acc-link { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); text-decoration: underline; cursor: pointer; }
 
-    /* COURSES */
-    .courses-section { background: var(--white); padding: 6rem 0; }
-    .courses-section h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 3rem; }
-    .courses-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
-    .course-tile { background: var(--off-white); border: 1px solid var(--border); overflow: hidden; cursor: pointer; transition: border-color .2s, transform .2s, box-shadow .2s; }
-    .course-tile:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,75,135,0.12); }
-    .course-thumb { height: 130px; background: linear-gradient(135deg, var(--navy-dark), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 2.75rem; position: relative; overflow: hidden; }
-    .course-thumb::after { content: 'View Courses →'; position: absolute; inset: 0; background: rgba(91,194,213,0.92); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); opacity: 0; transition: opacity .2s; }
-    .course-tile:hover .course-thumb::after { opacity: 1; }
-    .course-info { padding: 1.25rem; }
-    .course-info h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.4rem; }
-    .course-info p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
-    .course-tag { display: inline-block; margin-top: 0.75rem; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.15); color: var(--navy); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; }
+    /* ─── COURSES ─── */
+    .courses-section { background: var(--surface); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
+    .courses-section h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); margin-bottom: 2.5rem; }
+    .courses-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--outline); border: 1px solid var(--outline); }
+    .course-tile { background: var(--surface); overflow: hidden; cursor: pointer; transition: background .15s; }
+    .course-tile:hover { background: var(--bg); }
+    .course-thumb {
+      height: 110px;
+      background: var(--surface-3);
+      border-bottom: 1px solid var(--outline);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.4rem;
+    }
+    .img-stub { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-placeholder); }
+    .course-info { padding: 1rem 1.1rem 1.25rem; }
+    .course-info h3 { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.35rem; }
+    .course-info p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+    .course-tag { display: inline-block; margin-top: 0.6rem; background: var(--surface-3); border: 1px solid var(--outline); color: var(--text-mid); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; }
+    .courses-note { color: var(--text-muted); font-size: 0.85rem; margin-top: 1.25rem; }
 
-    /* TRUST */
-    .trust-section { background: var(--off-white); padding: 6rem 0; }
+    /* ─── TRUST ─── */
+    .trust-section { background: var(--bg); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
     .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .trust-content h2 { font-family: var(--font-display); font-size: clamp(2rem,3vw,3rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; margin-bottom: 1rem; }
-    .trust-content h2 span { color: var(--teal); }
-    .trust-intro { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin-bottom: 2rem; }
+    .trust-content h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; }
+    .trust-intro { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.75rem; }
     .trust-points { list-style: none; }
-    .trust-point { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
-    .trust-point:first-child { border-top: 1px solid var(--border); }
-    .trust-bullet { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
-    .trust-point-text strong { display: block; font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.2rem; }
-    .trust-point-text p { color: var(--muted); font-size: 0.88rem; }
-    .trust-media { background: var(--navy); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; position: relative; overflow: hidden; }
-    .trust-media::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(91,194,213,0.1) 0%, transparent 70%); }
-    .trust-media-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; padding: 0 2rem; }
-    .play-btn { width: 72px; height: 72px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; transition: transform .2s; box-shadow: 0 4px 24px rgba(227,120,20,0.4); }
-    .play-btn:hover { transform: scale(1.08); }
-    .trust-media-label { color: rgba(255,255,255,0.45); font-size: 0.78rem; font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
-    .stats-row { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 2rem; background: rgba(0,0,0,0.35); display: flex; justify-content: space-around; }
+    .trust-point { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--outline-2); }
+    .trust-point:first-child { border-top: 1px solid var(--outline-2); }
+    .trust-bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--text-dark); flex-shrink: 0; margin-top: 7px; }
+    .trust-point-text strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.15rem; }
+    .trust-point-text p { font-size: 0.82rem; color: var(--text-muted); }
+    .trust-media {
+      background: var(--surface-3);
+      border: 2px dashed var(--outline);
+      aspect-ratio: 4/3;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+      position: relative;
+    }
+    .play-stub {
+      width: 64px; height: 64px;
+      background: var(--surface-2);
+      border: 2px solid var(--outline);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--text-muted);
+    }
+    .trust-media-label { font-size: 0.72rem; color: var(--text-placeholder); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; }
+    .stats-row {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: var(--surface-2); border-top: 1px solid var(--outline);
+      padding: 1rem 1.5rem; display: flex; justify-content: space-around;
+    }
     .stat { text-align: center; }
-    .stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; color: var(--teal); line-height: 1; }
-    .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--text-dark); line-height: 1; }
+    .stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* LOCATIONS */
-    .locations-section { background: var(--white); padding: 6rem 0; }
-    .locations-section h2 { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 800; text-transform: uppercase; color: var(--navy); margin-bottom: 0.75rem; }
-    .locations-intro { color: var(--muted); margin-bottom: 2.5rem; max-width: 560px; }
-    .locations-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 2rem; }
-    .map-placeholder { background: var(--off-white); border: 1px solid var(--border); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; position: relative; overflow: hidden; }
-    .map-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 38% 55%, rgba(0,75,135,0.05) 0%, transparent 50%); }
-    .map-icon { font-size: 3.5rem; position: relative; z-index: 1; }
-    .map-label { color: var(--muted); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; position: relative; z-index: 1; }
-    .centre-cards { display: flex; flex-direction: column; gap: 1rem; }
-    .centre-card { background: var(--off-white); border: 1px solid var(--border); border-left: 3px solid var(--teal); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.25rem; text-decoration: none; color: inherit; transition: border-left-color .2s, background .2s, transform .2s, box-shadow .2s; }
-    .centre-card:hover { border-left-color: var(--navy); background: var(--white); transform: translateX(4px); box-shadow: 0 2px 12px rgba(0,75,135,0.08); }
-    .centre-pin { width: 38px; height: 38px; flex-shrink: 0; background: rgba(0,75,135,0.07); border: 1px solid rgba(0,75,135,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    /* ─── LOCATIONS ─── */
+    .locations-section { background: var(--surface); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
+    .locations-section h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .locations-intro { color: var(--text-mid); margin-bottom: 2rem; max-width: 560px; font-size: 0.92rem; }
+    .locations-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.5rem; }
+    .map-placeholder {
+      background: var(--surface-3);
+      border: 2px dashed var(--outline);
+      min-height: 360px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .map-icon-stub {
+      width: 56px; height: 56px;
+      background: var(--surface-2); border: 1px solid var(--outline);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--text-placeholder);
+    }
+    .map-label { font-size: 0.72rem; color: var(--text-placeholder); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; }
+    .centre-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+    .centre-card {
+      background: var(--bg); border: 1px solid var(--outline);
+      border-left: 3px solid var(--text-dark);
+      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none; color: inherit;
+      transition: background .15s;
+    }
+    .centre-card:hover { background: var(--surface-2); }
+    .centre-pin-stub {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--surface-3); border: 1px solid var(--outline);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.55rem; font-weight: 700; text-transform: uppercase;
+      color: var(--text-muted);
+    }
     .centre-info { flex: 1; }
-    .centre-info strong { display: block; font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 0.15rem; }
-    .centre-info span { color: var(--muted); font-size: 0.83rem; }
-    .centre-cta { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--teal); white-space: nowrap; }
+    .centre-info strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.1rem; }
+    .centre-info span { font-size: 0.78rem; color: var(--text-muted); }
+    .centre-cta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); white-space: nowrap; }
 
-    /* FAQ */
-    .faq-section { background: var(--off-white); padding: 6rem 0; }
+    /* ─── FAQ ─── */
+    .faq-section { background: var(--bg); padding: 5rem 0; border-bottom: 2px solid var(--outline); }
     .faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; }
-    .faq-sidebar h2 { font-family: var(--font-display); font-size: clamp(2rem,3vw,3rem); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 0.95; margin-bottom: 1.5rem; }
-    .faq-sidebar p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .faq-sidebar h2 { font-size: clamp(1.6rem,3vw,2.6rem); font-weight: 700; color: var(--text-dark); line-height: 1; margin-bottom: 1.25rem; }
+    .faq-sidebar p { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.75rem; }
 
-    /* FINAL CTA */
-    .final-cta { background: var(--navy); padding: 6rem 0; position: relative; overflow: hidden; }
-    .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,194,213,0.1) 0%, transparent 60%), repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255,255,255,0.015) 30px, rgba(255,255,255,0.015) 31px); }
-    .final-cta-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
-    .final-cta h2 { font-family: var(--font-display); font-size: clamp(2rem,4vw,4.2rem); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 0.92; letter-spacing: -0.01em; margin-bottom: 1rem; }
-    .final-cta h2 span { color: var(--teal); }
-    .final-cta p { color: rgba(255,255,255,0.65); font-size: 1.05rem; }
-    .final-cta-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; flex-shrink: 0; }
-    .final-phone { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; color: var(--white); letter-spacing: 0.04em; white-space: nowrap; }
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      background: var(--surface-3);
+      border-top: 2px solid var(--outline);
+      border-bottom: 2px solid var(--outline);
+      padding: 5rem 0;
+    }
+    .final-cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    .final-cta h2 { font-size: clamp(1.8rem,4vw,3.8rem); font-weight: 700; color: var(--text-dark); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .final-cta p { color: var(--text-mid); font-size: 1rem; }
+    .final-cta-actions { display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-end; flex-shrink: 0; }
+    .final-phone { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); letter-spacing: 0.04em; white-space: nowrap; }
 
-    /* FOOTER */
-    footer { background: var(--navy-dark); border-top: 3px solid var(--teal); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--white); }
-    .footer-logo span { color: var(--teal); }
-    footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface-2);
+      border-top: 1px solid var(--outline);
+      padding: 1.5rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); }
+    footer p { color: var(--text-muted); font-size: 0.78rem; }
+
+    /* ─── WIREFRAME OVERLAY NOTES ─── */
+    .wf-note {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-placeholder);
+      margin-top: 0.5rem;
+      display: block;
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Logic<span>4training</span></div>
+  <div class="nav-logo">[ LOGO ]</div>
   <ul class="nav-links">
     <li><a href="#">Courses</a></li>
     <li><a href="#">Qualifications</a></li>
     <li><a href="#">Locations</a></li>
     <li><a href="#">About</a></li>
   </ul>
-  <div class="nav-phone">📞 0800 000 0000</div>
+  <a href="tel:02088457222" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.82rem;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg> Speak to Our Team</a>
 </nav>
 
 <!-- ═══ 1. HERO ═══ -->
 <section class="hero">
-  <div class="hero-accent"></div>
   <div class="hero-content">
-    <div class="hero-badge">UK Electrical Training Provider</div>
-    <h1>Electrical Training <em>Courses &amp;</em> <em>Qualifications</em></h1>
+    <div class="hero-badge">[ Badge: UK Electrical Training Provider ]</div>
+    <h1>Electrical Training Courses &amp; Qualifications</h1>
     <p class="hero-intro">Becoming a qualified electrician can open the door to a secure, well-paid and in-demand career. Whether you're starting from scratch, changing career, or looking to update your qualifications, there are structured training routes available in the UK.</p>
     <p class="hero-intro">At Logic4training, we deliver electrical courses for new entrants, experienced operatives and qualified electricians needing certification. Our courses are designed to help you progress at every stage, from foundation diplomas and AM2 to 18th Edition and inspection &amp; testing.</p>
     <div class="cta-group">
       <a href="#" class="btn-primary">Speak to One of Our Electrical Course Advisors Today</a>
-      <a href="https://www.logic4training.co.uk/insights/retrain-as-an-electrician-in-2025-everything-you-need-to-know/" class="btn-secondary">Read our Guide to Training as an Electrician</a>
+      <a href="https://www.logic4training.co.uk/insights/logic4training-guides-ultimate-guide-to-electrician-careers/" class="btn-secondary">Not sure? Read the career guide →</a>
     </div>
   </div>
   <div class="hero-image-panel">
-    <div class="hero-placeholder">
-      <div class="hero-placeholder-icon"></div>
-      <p>[ Hero image: electrician installing<br>consumer unit or testing circuits ]</p>
+    <div class="img-placeholder">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="48" height="36" rx="2" stroke="#999" stroke-width="2"/>
+        <circle cx="28" cy="28" r="8" stroke="#999" stroke-width="2"/>
+        <line x1="4" y1="40" x2="20" y2="26" stroke="#999" stroke-width="2"/>
+        <line x1="52" y1="40" x2="36" y2="26" stroke="#999" stroke-width="2"/>
+      </svg>
     </div>
+    <p class="placeholder-caption">Hero Image<br>Electrician at work</p>
   </div>
 </section>
 
@@ -345,66 +514,74 @@
     <div class="picker-grid" id="pickerGrid">
 
       <div class="picker-card" data-panel="0" onclick="togglePanel(0)">
-        <div class="picker-arrow">›</div>
+        <div class="picker-toggle">›</div>
+        <div class="picker-icon-box">Icon</div>
         <h3>I Have No Experience / I'm Changing Career</h3>
-        <p class="picker-short">Start from scratch with our new entrant routes.</p>
+        <p>Start from scratch with our new entrant routes.</p>
       </div>
 
       <div class="picker-card" data-panel="1" onclick="togglePanel(1)">
-        <div class="picker-arrow">›</div>
+        <div class="picker-toggle">›</div>
+        <div class="picker-icon-box">Icon</div>
         <h3>I Work in the Trade But Don't Hold a Full Qualification</h3>
-        <p class="picker-short">Formalise your existing skills and experience.</p>
+        <p>Formalise your existing skills and experience.</p>
       </div>
 
       <div class="picker-card" data-panel="2" onclick="togglePanel(2)">
-        <div class="picker-arrow">›</div>
+        <div class="picker-toggle">›</div>
+        <div class="picker-icon-box">Icon</div>
         <h3>I'm a Qualified Electrician Needing Additional Qualifications</h3>
-        <p class="picker-short">Stay compliant or expand your services.</p>
+        <p>Stay compliant or expand your services.</p>
       </div>
 
       <div class="picker-card" data-panel="3" onclick="togglePanel(3)">
-        <div class="picker-arrow">›</div>
+        <div class="picker-toggle">›</div>
+        <div class="picker-icon-box">Icon</div>
         <h3>I Want to Specialise in EV or Renewable Technologies</h3>
-        <p class="picker-short">Upskill into growing low-carbon sectors.</p>
+        <p>Upskill into growing low-carbon sectors.</p>
       </div>
 
       <div class="picker-panel" id="panel-0">
+        <div class="panel-icon-box">Icon</div>
         <div class="panel-content">
           <h4>New Entrants Electrical Package</h4>
           <p>If you're starting from scratch, you'll need to build foundational knowledge before progressing toward full qualification. Our New Entrants Electrical Packages are designed for career changers and beginners, combining Level 2, Level 3 and progression routes toward NVQ and AM2.</p>
           <div class="panel-ctas">
-            <a href="https://www.logic4training.co.uk/new-entrants/how-to-become-an-electrician/" class="btn-primary">View New Entrants Electrical Courses</a>
-            <a href="#" class="link-arrow">Read our guide to retraining as an electrician →</a>
+            <a href="#" class="btn-primary">View New Entrants Electrical Courses</a>
+            <a href="https://www.logic4training.co.uk/insights/logic4training-guides-ultimate-guide-to-electrician-careers/" class="link-text">Read our guide to retraining as an electrician →</a>
           </div>
         </div>
       </div>
 
       <div class="picker-panel" id="panel-1">
+        <div class="panel-icon-box">Icon</div>
         <div class="panel-content">
           <h4>NVQ Experienced Worker Route</h4>
           <p>If you're already carrying out electrical work but don't hold a Level 3 NVQ, the Experienced Worker Route (EWR) can allow you to formalise your skills by achieving a Level 3 qualification, and culminating in your AM2 assessment to become a fully qualified electrician.</p>
           <div class="panel-ctas">
-            <a href="https://www.logic4training.co.uk/courses/electrical/electrical-installation-diplomas/city-guilds-2365-level-3-diploma-in-electrical-installations/" class="btn-primary">Learn about the NVQ Level 3 Experienced Worker Route</a>
+            <a href="#" class="btn-primary">Speak to Our Team about the NVQ Level 3 Experienced Worker Route</a>
           </div>
         </div>
       </div>
 
       <div class="picker-panel" id="panel-2">
+        <div class="panel-icon-box">Icon</div>
         <div class="panel-content">
           <h4>Electrical Safety &amp; Compliance Courses</h4>
           <p>Many electricians require additional qualifications to remain compliant or expand their services. Common routes include 18th Edition Wiring Regulations and Inspection &amp; Testing. We can help you get certified.</p>
           <div class="panel-ctas">
-            <a href="https://www.logic4training.co.uk/courses/electrical/electrical-safety-courses/" class="btn-primary">Explore Electrical Safety and Compliance Courses</a>
+            <a href="#" class="btn-primary">Explore Electrical Safety and Compliance Courses</a>
           </div>
         </div>
       </div>
 
       <div class="picker-panel" id="panel-3">
+        <div class="panel-icon-box">Icon</div>
         <div class="panel-content">
           <h4>Renewable Technology Courses</h4>
           <p>With demand growing in low-carbon technologies, many electricians are upskilling into renewable technologies such as electric vehicle charging, energy storage systems or solar PV.</p>
           <div class="panel-ctas">
-            <a href="https://www.logic4training.co.uk/courses/electrical/electric-vehicle-charging-and-energy-storage/" class="btn-primary">View Renewable Technology Courses</a>
+            <a href="#" class="btn-primary">View Renewable Technology Courses</a>
           </div>
         </div>
       </div>
@@ -419,12 +596,13 @@
     <div class="overview-header">
       <div class="section-label">How It Works</div>
       <h2>How Do You Become a Qualified Electrician in the UK?</h2>
-      <p style="color:var(--muted);margin-top:0.75rem;max-width:560px;">There are several recognised routes into the electrical industry, but most follow a similar progression structure.</p>
+      <p style="color:var(--text-mid);margin-top:0.75rem;max-width:560px;font-size:0.92rem;">There are several recognised routes into the electrical industry, but most follow a similar progression structure.</p>
     </div>
 
     <div class="overview-grid">
 
       <div class="overview-card">
+        <div class="icon-box-sm">Icon</div>
         <h3>Typical Training Pathway</h3>
         <ul class="pathway-steps">
           <li><span class="step-num">1</span> Level 2 Diploma in Electrical Installation</li>
@@ -435,28 +613,32 @@
         </ul>
       </div>
 
-      <div class="overview-card accent-teal">
+      <div class="overview-card mid-card">
+        <div class="icon-box-sm">Icon</div>
         <h3>How Long Does It Take?</h3>
-        <p style="margin-bottom:0.75rem;">The timeframe depends on your route:</p>
+        <p style="margin-bottom:0.65rem;">The timeframe depends on your route:</p>
         <ul class="timeframe-list">
           <li><strong>Apprenticeship Route</strong>Typically 3–4 years</li>
           <li><strong>Training Course Route</strong>1–3.5 years</li>
           <li><strong>College Route</strong>2.5–3.5 years</li>
           <li><strong>Experienced Worker Route</strong>Varies depending on existing experience</li>
         </ul>
+        <a href="https://www.logic4training.co.uk/insights/how-long-does-it-take-to-become-an-electrician/" class="acc-link" style="display:inline-flex;margin-top:1.25rem;">Read More →</a>
       </div>
 
-      <div class="overview-card accent-orange">
+      <div class="overview-card light-card">
+        <div class="icon-box-sm">Icon</div>
         <h3>Career Outlook &amp; Salary</h3>
         <p>The UK electrical sector continues to grow, driven by housing demand, infrastructure investment and renewable energy adoption. Qualified electricians often earn competitive salaries, with opportunities to become self-employed or specialise in higher-value sectors such as inspection &amp; testing, EV charging or renewables.</p>
-        <p style="margin-top:1rem;">For a detailed breakdown of training routes, timelines and career prospects, read our full guide to retraining as an electrician.</p>
+        <p style="margin-top:0.75rem;">For a detailed breakdown of training routes, timelines and career prospects, read our full guide to retraining as an electrician.</p>
+        <a href="https://www.logic4training.co.uk/insights/electrician-day-rates-uk/" class="acc-link" style="display:inline-flex;margin-top:1.25rem;">Read More →</a>
       </div>
 
     </div>
 
-    <div class="overview-cta-banner">
+    <div class="cta-strip">
       <p>Read the complete guide to retraining as an electrician</p>
-      <a href="#" class="btn-secondary">Read the Full Guide →</a>
+      <a href="https://www.logic4training.co.uk/insights/logic4training-guides-ultimate-guide-to-electrician-careers/" class="btn-secondary">Read the Full Guide →</a>
     </div>
   </div>
 </section>
@@ -477,7 +659,7 @@
       <div class="accordion-item open">
         <button class="accordion-trigger" onclick="toggleAccordion(this)">
           <div class="accordion-trigger-left">
-            <div class="acc-icon">🔷</div>
+            <div class="acc-icon-box">Ico</div>
             <h3>Level 2 Diploma in Electrical Installation</h3>
           </div>
           <div class="acc-chevron">▲</div>
@@ -491,7 +673,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleAccordion(this)">
           <div class="accordion-trigger-left">
-            <div class="acc-icon">🔷</div>
+            <div class="acc-icon-box">Ico</div>
             <h3>Level 3 Diploma in Electrical Installation</h3>
           </div>
           <div class="acc-chevron">▼</div>
@@ -505,7 +687,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleAccordion(this)">
           <div class="accordion-trigger-left">
-            <div class="acc-icon">🔷</div>
+            <div class="acc-icon-box">Ico</div>
             <h3>NVQ Level 3 Electrical Installation</h3>
           </div>
           <div class="acc-chevron">▼</div>
@@ -519,7 +701,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleAccordion(this)">
           <div class="accordion-trigger-left">
-            <div class="acc-icon">🔷</div>
+            <div class="acc-icon-box">Ico</div>
             <h3>AM2 Assessment</h3>
           </div>
           <div class="acc-chevron">▼</div>
@@ -533,7 +715,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" onclick="toggleAccordion(this)">
           <div class="accordion-trigger-left">
-            <div class="acc-icon">🔷</div>
+            <div class="acc-icon-box">Ico</div>
             <h3>18th Edition Wiring Regulations (BS 7671)</h3>
           </div>
           <div class="acc-chevron">▼</div>
@@ -545,10 +727,11 @@
       </div>
 
     </div>
+    <div style="margin-top:1.5rem;">
+      <a href="https://www.logic4training.co.uk/insights/what-qualifications-do-i-need-to-be-an-electrician/" class="btn-secondary">Read More about Electrical Qualifications →</a>
+    </div>
   </div>
-</section>
-
-<!-- ═══ 5. COURSES ═══ -->
+</section> ═══ -->
 <section class="courses-section">
   <div class="container">
     <div class="section-label">What We Offer</div>
@@ -556,88 +739,71 @@
 
     <div class="courses-grid">
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/new-entrants/how-to-become-an-electrician/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
-          
           <h3>New Entrants Electrical Packages</h3>
           <p>Complete training bundles for career changers and beginners entering the electrical trade for the first time.</p>
-          <span class="course-tag">Beginner</span>
+          <span class="course-tag">Entry Level</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/electrical-installation-diplomas/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Electrical Installation Diplomas</h3>
           <p>Level 2 &amp; 3 diplomas covering installation theory and practice from foundation to advanced.</p>
           <span class="course-tag">Level 2 &amp; 3</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/electrical-level-3-nvq/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Electrical Level 3 NVQ</h3>
           <p>Workplace competency qualification required for ECS Gold Card and full qualification status.</p>
-          <span class="course-tag">NVQ</span>
+          <span class="course-tag">Qualification</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/electrical-safety-courses/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Electrical Safety Courses</h3>
           <p>Essential safety training for professionals working with electrical systems and installations.</p>
           <span class="course-tag">Compliance</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/domestic-electrical-courses/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Domestic Electrical Courses</h3>
           <p>Specialist courses focused on domestic installation work for those operating in residential properties.</p>
           <span class="course-tag">Domestic</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/electrical-inspection-and-testing-courses/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Electrical Inspection &amp; Testing</h3>
           <p>For qualified electricians expanding into inspection, testing and electrical condition reporting.</p>
           <span class="course-tag">Qualified +</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/electrical/wiring-regulation-courses/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Wiring Regulations Courses</h3>
           <p>18th Edition BS 7671 certification for qualified electricians. Essential for legal compliance in practice.</p>
           <span class="course-tag">18th Edition</span>
         </div>
-        </a>
       </div>
       <div class="course-tile">
-        <a href="https://www.logic4training.co.uk/courses/renewables/renewable-technologies/">
-        <div class="course-thumb">[Placeholder Image]</div>
+        <div class="course-thumb"><div class="img-stub">Image</div></div>
         <div class="course-info">
           <h3>Electric Renewable Technologies</h3>
           <p>EV charging, solar PV and energy storage — upskill into high-demand low-carbon technologies.</p>
           <span class="course-tag">Specialist</span>
         </div>
-        </a>
       </div>
     </div>
-    <p style="color:var(--muted);font-size:0.9rem;margin-top:1.5rem;">All of our courses are delivered by experienced tutors in practical workshop environments at our dedicated training centres.</p>
+    <p class="courses-note">Each course is delivered by experienced tutors in practical workshop environments at our dedicated training centres.</p>
   </div>
 </section>
 
@@ -647,7 +813,7 @@
     <div class="trust-grid">
       <div class="trust-content">
         <div class="section-label">Why Logic4training</div>
-        <h2>Choosing the Right <span>Training</span> Provider Matters</h2>
+        <h2>Choosing the Right Training Provider Matters</h2>
         <p class="trust-intro">We understand how to help you move forward in your electrical career and offer all the qualifications you need — not only to get started, but for continued progress.</p>
         <ul class="trust-points">
           <li class="trust-point">
@@ -695,14 +861,12 @@
         </ul>
       </div>
       <div class="trust-media">
-        <div class="trust-media-inner">
-          <div class="play-btn">▶</div>
-          <p class="trust-media-label">[ Real training photo or testimonial video ]</p>
-        </div>
+        <div class="play-stub">Video /<br>Photo</div>
+        <p class="trust-media-label">Real training photo<br>or testimonial video</p>
         <div class="stats-row">
-          <div class="stat"><div class="stat-num">4</div><div class="stat-label">Training Centres</div></div>
-          <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Course Types</div></div>
-          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Trading</div></div>
+          <div class="stat"><div class="stat-num">2000+</div><div class="stat-label">5-Star Reviews</div></div>
+          <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Courses</div></div>
+          <div class="stat"><div class="stat-num">23+</div><div class="stat-label">Years Trading</div></div>
         </div>
       </div>
     </div>
@@ -717,28 +881,28 @@
     <p class="locations-intro">We deliver electrical training in 4 locations, with practical facilities designed to replicate real-world installations. Learn more about our training centres and their facilities below.</p>
     <div class="locations-grid">
       <div class="map-placeholder">
-        <div class="map-icon">🗺️</div>
-        <p class="map-label">[ Embedded Google Map — 4 training centre pins ]</p>
+        <div class="map-icon-stub">Map</div>
+        <p class="map-label">Embedded Google Map<br>4 training centre pins</p>
       </div>
       <div class="centre-cards">
-        <a href="https://www.logic4training.co.uk/centres/northolt/" class="centre-card">
-          <div class="centre-pin">📍</div>
-          <div class="centre-info"><strong>Northolt</strong><span>West London</span><span><a href="tel:020 8845 7222">020 8845 7222</a></span></div>
+        <a href="#" class="centre-card">
+          <div class="centre-pin-stub">Pin</div>
+          <div class="centre-info"><strong>Northolt</strong><span>West London</span></div>
           <span class="centre-cta">View Centre →</span>
         </a>
-        <a href="https://www.logic4training.co.uk/centres/luton/" class="centre-card">
-          <div class="centre-pin">📍</div>
-          <div class="centre-info"><strong>Luton</strong><span>Bedfordshire</span><span><a href="tel:01582 562702">01582 562702</a></span></div>
+        <a href="#" class="centre-card">
+          <div class="centre-pin-stub">Pin</div>
+          <div class="centre-info"><strong>Luton</strong><span>Bedfordshire</span></div>
           <span class="centre-cta">View Centre →</span>
         </a>
-        <a href="https://www.logic4training.co.uk/centres/basildon/" class="centre-card">
-          <div class="centre-pin">📍</div>
-          <div class="centre-info"><strong>Basildon</strong><span>Essex</span><span><a href="tel:01268 413315">01268 413315</a></span></div>
+        <a href="#" class="centre-card">
+          <div class="centre-pin-stub">Pin</div>
+          <div class="centre-info"><strong>Basildon</strong><span>Essex</span></div>
           <span class="centre-cta">View Centre →</span>
         </a>
-        <a href="https://www.logic4training.co.uk/centres/sittingbourne/" class="centre-card">
-          <div class="centre-pin">📍</div>
-          <div class="centre-info"><strong>Sittingbourne</strong><span>Kent</span><span><a href="tel:01795 505991">01795 505991</a></span></div>
+        <a href="#" class="centre-card">
+          <div class="centre-pin-stub">Pin</div>
+          <div class="centre-info"><strong>Sittingbourne</strong><span>Kent</span></div>
           <span class="centre-cta">View Centre →</span>
         </a>
       </div>
@@ -764,7 +928,7 @@
             <div class="acc-chevron">▲</div>
           </button>
           <div class="accordion-body">
-            <p>Yes. Many of our learners are career changers in their 30s and 40s.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
 
@@ -774,7 +938,7 @@
             <div class="acc-chevron">▼</div>
           </button>
           <div class="accordion-body">
-            <p>No. New entrants can begin with Level 2 courses designed for beginners.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
 
@@ -784,7 +948,7 @@
             <div class="acc-chevron">▼</div>
           </button>
           <div class="accordion-body">
-            <p>Many electrical courses are structured to allow staged progression alongside employment.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           </div>
         </div>
 
@@ -794,7 +958,7 @@
             <div class="acc-chevron">▼</div>
           </button>
           <div class="accordion-body">
-            <p>The AM2 is the final practical assessment required to demonstrate occupational competence.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </div>
 
@@ -804,7 +968,7 @@
             <div class="acc-chevron">▼</div>
           </button>
           <div class="accordion-body">
-            <p>Basic maths skills are helpful, particularly for calculations and testing, but advanced maths is not required.</p>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p>
           </div>
         </div>
 
@@ -818,20 +982,21 @@
   <div class="container">
     <div class="final-cta-inner">
       <div>
-        <h2>Start Your Journey Toward<br>Becoming a <span>Qualified</span><br>Electrician</h2>
+        <h2>Start Your Journey Toward Becoming a Qualified Electrician</h2>
         <p>If you're unsure which route is right for you, our team can help. Call us today or enquire online to discuss your experience level and career goals.</p>
       </div>
       <div class="final-cta-actions">
-        <div class="final-phone"><a href="tel:020 8845 7222">020 8845 7222</a></div>
-        <a href="https://www.logic4training.co.uk/request-a-callback/" class="btn-primary">Request a Callback</a>
+        <a href="tel:02088457222" class="btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg> Speak to Our Team</a>
+        <a href="#" class="btn-primary">Enquire Online</a>
+        <a href="#" class="btn-ghost">Request a Callback</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">logic<span>4</span>training</div>
-  <p>© 2025 Logic4training Ltd. All rights reserved.</p>
+  <div class="footer-logo">[ Logo ]</div>
+  <p>© 2025 Company Name. All rights reserved.</p>
 </footer>
 
 <script>
@@ -853,21 +1018,6 @@
     item.classList.toggle('open');
     btn.querySelector('.acc-chevron').textContent = item.classList.contains('open') ? '▲' : '▼';
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const targets = document.querySelectorAll('.picker-card, .overview-card, .course-tile, .centre-card, .trust-point');
-    targets.forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      el.style.transition = `opacity 0.45s ease ${(i % 8) * 0.07}s, transform 0.45s ease ${(i % 8) * 0.07}s`;
-    });
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    targets.forEach(el => obs.observe(el));
-  });
 </script>
 
 </body>
